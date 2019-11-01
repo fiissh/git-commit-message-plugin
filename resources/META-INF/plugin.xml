@@ -1,0 +1,124 @@
+<idea-plugin>
+    <id>fiissh.tech.intellij.plugin.git.message</id>
+    <name>git commit message creator</name>
+    <version>1.0.0</version>
+    <vendor email="zhaoyongchun2010@gmail.com" url="https://fiissh.tech">fiissh.tech</vendor>
+
+    <description>
+        <![CDATA[
+        <img src="https://github.com/fiissh/git-commit-message-plugin/image/image_1.png"/>
+        <br>
+        <img src="https://github.com/fiissh/git-commit-message-plugin/image/image_2.png"/>
+        <h1>Git 提交信息规范化生成插件</h1>
+        <p>使用 IDEA 的图形化 Git 提交代码时，通过该插件生成规范化的提交信息。</p>
+        <p>作者: 肥肥鱼（fiissh.zhao）</p>
+        <p>特别感谢: <a href="https://github.com/RmondJone/Commit-Message-Plugin">RmondJone/Commit-Message-Plugin</a></p>
+        <p>特别感谢: <a href="https://github.com/commitizen/conventional-commit-types">commitizen/conventional-commit-types</a></p>
+        <p>插件 Github 地址:<a href="https://github.com/fiissh/git-commit-message-plugin">https://github.com/fiissh/git-commit-message-plugin</a></p>
+
+        <p>插件根据 <a href="https://github.com/commitizen/conventional-commit-types">commitizen/conventional-commit-types</a> 提供了默认的 commit type 的实现，如果您认为默认的 commit type 不能满足您的需求，你可以通过在项目根目录创建 git_commit_message_creator.json 文件，并修改其中的内容即可。</p>
+
+        <h1>Git commit message submit information generation plugin</h1>
+        <p>Submit information template generation plugin for standardizing code submission information</p>
+        <p>Author: 肥肥鱼（fiissh.zhao）</p>
+        <p>Special thanks: <a href="https://github.com/RmondJone/Commit-Message-Plugin">RmondJone/Commit-Message-Plugin</a></p>
+        <p>Special thanks: <a href="https://github.com/commitizen/conventional-commit-types">commitizen/conventional-commit-types</a></p>
+        <p>Plugin Github address: <a href="https://github.com/fiissh/git-commit-message-plugin">https://github.com/fiissh/git-commit-message-plugin</a></p>
+        <p>the plugin provide default commit message implementation(<a href="https://github.com/commitizen/conventional-commit-types">commitizen/conventional-commit-types</a>),if the default commit implementation can't satisfy you,you can provide a git_commit_message_creator.json file in your project root directory.</p>
+
+        <p>
+        <code>
+            {
+              "plugin_name": "git commit message creator", //the display name of the plugin window
+              "commit_type": [
+                {
+                  "type": "FEATURE",
+                  "title": "Features",
+                  "description": "A new feature"
+                },
+                {
+                  "type": "FIX",
+                  "title": "Bug Fixes",
+                  "description": "A bug fix"
+                },
+                {
+                  "type": "IMPROVEMENT",
+                  "title": "Improvements",
+                  "description": "An improvement to a current feature"
+                },
+                {
+                  "type": "DOCS",
+                  "title": "Documentation",
+                  "description": "Documentation only changes"
+                },
+                {
+                  "type": "STYLE",
+                  "title": "Styles",
+                  "description": "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)"
+                },
+                {
+                  "type": "REFACTOR",
+                  "title": "Code Refactoring",
+                  "description": "A code change that neither fixes a bug nor adds a feature"
+                },
+                {
+                  "type": "PERFORMANCE",
+                  "title": "Performance Improvements",
+                  "description": "A code change that improves performance"
+                },
+                {
+                  "type": "TEST",
+                  "title": "Tests",
+                  "description": "Adding missing tests or correcting existing tests"
+                },
+                {
+                  "type": "BUILD",
+                  "title": "Builds",
+                  "description": "Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)"
+                },
+                {
+                  "type": "CI",
+                  "title": "Continuous Integrations",
+                  "description": "Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)"
+                },
+                {
+                  "type": "CHORE",
+                  "title": "Chores",
+                  "description": "Other changes that don't modify src or test files"
+                },
+                {
+                  "type": "REVERT",
+                  "title": "Reverts",
+                  "description": "Reverts a previous commit"
+                }
+              ]
+            }
+        </code>
+        </p>
+        ]]>
+
+    </description>
+
+    <change-notes>v_1.0.0: Pretty good for a first try,huh?</change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+    <depends>com.intellij.modules.vcs</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <action id="git commit message creator" class="fiissh.tech.intellij.plugin.git.message.PluginAction"
+                text="git commit message creator" description="git commit message creator" icon="PluginIcons.ICON">
+            <add-to-group group-id="Vcs.MessageActionGroup" anchor="first"/>
+        </action>
+    </actions>
+
+</idea-plugin>
